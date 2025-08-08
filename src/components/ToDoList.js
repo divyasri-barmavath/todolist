@@ -5,18 +5,6 @@
 
 
 
-//Task1 :Adding the tasks in to the list 
-//Task2 :Tasks need to be added to the list whenever we press enter rathar than only a button being pressed 
-//       and whenever user press enter or click button without giving any input then the Add task button should be disable
-//Task3 :Deleting the tasks based on index where we ned to add delete button beside all the tasks that are added
-//Task4 :Adding the Search bar beside the add button where the tasks in the list should be displayed based on what I search .
-//Task5 :Need to make the each task added to the list working as a separate component where we can reuse them
-//Task6 :Set the edit and save button beside each added task 
-//Task7 : After loading the page the previous added elements in the list should not be removed
-
-
-
-
 // useState – for managing the component’s reactive state
 // Purpose: To store and update dynamic data in your UI
 
@@ -25,25 +13,19 @@
 // Fetching data from an API
 // Saving to or reading from localStorage
 // Subscribing to events
-
-
 import React, { useState, useEffect, useRef } from 'react';
 import TaskItem from './TaskItem';
 import './ToDoList.css';
-
 function ToDoList() {
     const [task, setTask] = useState('');
     const [tasks, setTasks] = useState([]);
     const [search, setSearch] = useState('');
     const [isEditingIndex, setIsEditingIndex] = useState(null);
-
     const isFirstRender = useRef(true); 
-
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem('tasks'));
         if (storedTasks) setTasks(storedTasks);
     }, []);
-
     useEffect(() => {
         if (isFirstRender.current) {
             isFirstRender.current = false;

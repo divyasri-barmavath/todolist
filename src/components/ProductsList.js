@@ -25,11 +25,12 @@ function ProductsList() {
   return (
     <div>
       <h2>ProductsList :</h2>
-      <p>{loadingMessage}</p> {/* 🔁 Display loading source */}
+      <p>{loadingMessage}</p> 
       <ul>
         {products.map(product => (
           <li key={product.id}>
             {product.id}. {product.title} -- Description: {product.description} Category: {product.category}
+           
           </li>
         ))}
       </ul>
